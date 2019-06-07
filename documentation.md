@@ -11,7 +11,7 @@
 
 API URLs required:
 >>To Get New Stories: https://hacker-news.firebaseio.com/v0/topstories.json
->>To Get Past Stories: 
+>>To Get Past Stories: https://hacker-news.firebaseio.com/v0/item/:id.json
 >>To Get All Comments: 
 >>To Get All Asks Stories: 
 >>To Get All Jobs: 
