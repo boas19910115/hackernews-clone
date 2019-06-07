@@ -1,0 +1,13 @@
+.nav{
+  justify-content: center;
+  /* text-align: center;  */
+  margin: 0 auto;
+  background-color: tomato;
+  max-width: 1206px;
+  height: 26px;
+}
+
+.logo{
+  vertical-align: center;
+  border:1px white solid;
+}
