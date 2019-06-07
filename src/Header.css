@@ -4,10 +4,16 @@
   margin: 0 auto;
   background-color: tomato;
   max-width: 1206px;
-  height: 26px;
+  height: auto;
 }
 
 .logo{
-  vertical-align: center;
+  /* vertical-align: center; */
   border:1px white solid;
+  display: inline;
+  margin: 0 auto;
+}
+
+.color{
+  color: white;
 }
