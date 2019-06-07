@@ -5,13 +5,14 @@ import Footer from './Footer';
 var storiesArr = [];
 var mutableStoriesArr = [];
 
-class Stories extends Component {
+
+class NewStories extends Component {
   // constructor()
   state = {
     stories: []
   }
   componentDidMount() {
-    fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+    fetch('https://hacker-news.firebaseio.com/v0/newstories.json')
       .then(res => res.json())
       .then((data) => {
         data = data.slice(0, 30);
@@ -71,4 +72,4 @@ class Stories extends Component {
 }
 
 
-export default Stories;
+export default NewStories;
