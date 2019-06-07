@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# hackernews-clone
+This is a HackerNews Clone. This clone is not intended for competing with HackerNews in anyways, instead the clone's main usage is displaying the data in more beautiful &amp; organised way using the HN's Original API. We will try to implement each functionality which HN has.
+>>>>>>> 8e35db39836578545dfe0688550d448a641552dc
