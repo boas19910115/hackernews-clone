@@ -95,7 +95,7 @@ class Jobs extends Component {
                     </td>
                   </tr>
                 )}
-                <tr class="stripe-dark">
+                <tr class="stripe">
                   <a href='#' onClick={() => this.getNextPage(runningIndex, runningIndex + limit)} class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-red">More</a>
                 </tr>
               </tbody>

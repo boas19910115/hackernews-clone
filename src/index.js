@@ -18,9 +18,9 @@ ReactDOM.render(
   <Router>
     <div class="nav">
       <nav class="">
-        <a href="#"><img class="logo" src={logo} width="18" height="18" /></a>
+        <Link to={'/'}><img class="logo" src={logo} width="18" height="18" /></Link>
         <span> </span>
-        <Link to={'/'} class="link dim black b f6 f5-ns dib mr3" href="#" title="Home">Hacker News |</Link>
+        <Link to={'/'} target="_blank" class="link dim black b f6 f5-ns dib mr3" href="#" title="Home">Hacker News |</Link>
       <Link to={'/newest'} class="link dim gray    f6 f5-ns dib mr3 color" href="#" title="new">new |</Link>
         <Link to='/best' class="link dim gray    f6 f5-ns dib mr3 color" href="#" title="past">best |</Link>
         <Link to='/ask' class="link dim gray    f6 f5-ns dib color" href="#" title="ask">ask | </Link>

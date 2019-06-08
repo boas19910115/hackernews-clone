@@ -99,7 +99,7 @@ class Ask extends Component {
                     </td>
                   </tr>
                 )}
-                <tr class="stripe-dark">
+                <tr class="stripe">
                   <a href='#' onClick={() => this.getNextPage(runningIndex, runningIndex + 30)} class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-red">More</a>
                 </tr>
               </tbody>
