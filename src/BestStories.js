@@ -44,7 +44,7 @@ class BestStories extends Component {
   getNextPage(first, last) {
     runningIndex = first + 30;
     // i = runningIndex;
-    fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+    fetch('https://hacker-news.firebaseio.com/v0/beststories.json')
       .then(res => res.json())
       .then((data) => {
         lastIndex = data.length;
