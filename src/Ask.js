@@ -4,6 +4,9 @@ import './Stories.css'
 import Footer from './Footer';
 var storiesArr = [];
 var mutableStoriesArr = [];
+var startIndex = 0;
+var runningIndex = 0;
+var lastIndex = 0;
 
 
 class Ask extends Component {
@@ -15,13 +18,19 @@ class Ask extends Component {
     fetch('https://hacker-news.firebaseio.com/v0/askstories.json')
       .then(res => res.json())
       .then((data) => {
-        data = data.slice(0, 30);
+        lastIndex = data.length;
+        data = data.slice(startIndex, runningIndex = startIndex+30);
+        var dataLen = data.length;
         data.forEach(data => {
           fetch(`https://hacker-news.firebaseio.com/v0/item/${data}.json`)
             .then(res => res.json())
             .then((story) => {
               story = JSON.stringify(story)
               storiesArr.push(story)
+              if (mutableStoriesArr.length >= dataLen) {
+                console.log('inside if')
+                mutableStoriesArr = [];
+              }
               mutableStoriesArr.push(story)
               this.setState({ stories: storiesArr })
               console.log(mutableStoriesArr)
@@ -30,6 +39,35 @@ class Ask extends Component {
         })
       })
       .catch(console.log)
+  }
+
+  getNextPage(first,last){
+    runningIndex = first + 30;
+    // i = runningIndex;
+    fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+    .then(res => res.json())
+    .then((data) => {
+      lastIndex = data.length;
+      data = data.slice(first, last);
+      var dataLen = data.length;
+      data.forEach(data => {
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${data}.json`)
+          .then(res => res.json())
+          .then((story) => {
+            story = JSON.stringify(story)
+            storiesArr.push(story)
+            if (mutableStoriesArr.length >= dataLen) {
+              console.log('inside if')
+              mutableStoriesArr = [];
+            }
+            mutableStoriesArr.push(story)
+            this.setState({ stories: storiesArr })
+            console.log(mutableStoriesArr)
+            // this.setState({stories: JSON.parse(this.storiesArr)})
+          })
+      })
+    })
+    .catch(console.log)
   }
 
   render() {
@@ -42,7 +80,11 @@ class Ask extends Component {
                 {mutableStoriesArr.map((data = JSON.parse(data), i) =>
                   <tr class="stripe-dark">
                     <td key={data.id} className='pa3'>
-                      <span><b>{i + 1}.</b></span>
+                    <span>
+                        <b>
+                          {runningIndex <= 30 ? <span><b>{i + 1}.</b></span> : <span><b>{runningIndex - 30 + i + 1}.</b></span>}
+                        </b>
+                      </span>
                       <p className='para'><b>{JSON.parse(data).title} </b></p>
                       <div>
                         <span class='score'>
@@ -57,6 +99,9 @@ class Ask extends Component {
                     </td>
                   </tr>
                 )}
+                <tr class="stripe-dark">
+                  <a href='#' onClick={() => this.getNextPage(runningIndex, runningIndex + 30)} class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-red">More</a>
+                </tr>
               </tbody>
             </table>
           </div>
